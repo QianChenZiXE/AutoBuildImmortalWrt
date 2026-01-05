@@ -63,6 +63,7 @@ PACKAGES="$PACKAGES luci-theme-argon"
 PACKAGES="$PACKAGES luci-i18n-passwall-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-cpufreq-zh-cn"
 PACKAGES="$PACKAGES luci-app-openlist"
+PACKAGES="$PACKAGES luci-app-openlist-zh-cn"
 # PACKAGES="$PACKAGES luci-app-openclash"
 # PACKAGES="$PACKAGES luci-i18n-homeproxy-zh-cn"
 # 判断是否需要编译 Docker 插件
