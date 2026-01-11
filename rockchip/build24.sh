@@ -33,7 +33,7 @@ else
   mkdir -p /home/build/immortalwrt/extra-packages
   cp -r /tmp/store-run-repo/run/arm64/* /home/build/immortalwrt/extra-packages/
 
-  echo "✅ Run files copied to extra-packages:"
+  echo "Run files copied to extra-packages:"
   ls -lh /home/build/immortalwrt/extra-packages/*.run
   # 解压并拷贝ipk到packages目录
   sh shell/prepare-packages.sh
@@ -52,8 +52,8 @@ cat repositories.conf
 # 定义所需安装的包列表 下列插件你都可以自行删减
 PACKAGES=""
 PACKAGES="$PACKAGES curl"
-PACKAGES="$PACKAGES -luci-app-opkg"
 PACKAGES="$PACKAGES -luci-app-cpufreq"
+#PACKAGES="$PACKAGES luci-i18n-cpufreq-zh-cn"
 PACKAGES="$PACKAGES openssh-sftp-server"
 PACKAGES="$PACKAGES luci-i18n-diskman-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-package-manager-zh-cn"
@@ -63,7 +63,6 @@ PACKAGES="$PACKAGES luci-theme-argon"
 # PACKAGES="$PACKAGES luci-i18n-argon-config-zh-cn"
 # PACKAGES="$PACKAGES luci-i18n-ttyd-zh-cn"
 PACKAGES="$PACKAGES luci-i18n-passwall-zh-cn"
-#PACKAGES="$PACKAGES luci-i18n-cpufreq-zh-cn"
 PACKAGES="$PACKAGES luci-app-openlist"
 PACKAGES="$PACKAGES luci-i18n-openlist-zh-cn"
 # PACKAGES="$PACKAGES luci-app-openclash"
@@ -87,7 +86,7 @@ echo "$PACKAGES"
 
 # 若构建openclash 则添加内核
 if echo "$PACKAGES" | grep -q "luci-app-openclash"; then
-    echo "✅ 已选择 luci-app-openclash，添加 openclash core"
+    echo "已选择 luci-app-openclash，添加 openclash core"
     mkdir -p files/etc/openclash/core
     # Download clash_meta
     META_URL="https://raw.githubusercontent.com/vernesong/OpenClash/core/master/meta/clash-linux-arm64.tar.gz"
@@ -97,7 +96,7 @@ if echo "$PACKAGES" | grep -q "luci-app-openclash"; then
     wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -O files/etc/openclash/GeoIP.dat
     wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -O files/etc/openclash/GeoSite.dat
 else
-    echo "⚪️ 未选择 luci-app-openclash"
+    echo "未选择 luci-app-openclash"
 fi
 
 
